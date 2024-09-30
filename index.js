@@ -117,3 +117,19 @@ db.runCommand({
     },
     validationAction: 'error'
 })
+
+
+db.createCollection({
+    validator:{
+        $jsonSchema:{
+            required: ['name', 'price'],
+            properties:{
+                name:{
+                    bsonType: 'string',
+                    description: 'must be string and required'
+                },
+                
+            }
+        }
+    }
+})
